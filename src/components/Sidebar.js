@@ -1,6 +1,7 @@
 import React from 'react'
 import SidebarItem from './SidebarItem';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   const isMenuOpen = useSelector((store)=>store.app.isMenuOpen);
@@ -8,10 +9,10 @@ const Sidebar = () => {
   if(!isMenuOpen) return null;
 
   return (
-    <div className='border-r-2 w-52'>
+    <div className='border-r-2 w-1/6 fixed bg-slate-100'>
       <div>
         <ul>
-          <li><SidebarItem name="Home" link="https://cdn-icons-png.flaticon.com/512/25/25694.png"/></li>
+          <li><Link to="/"><SidebarItem name="Home" link="https://cdn-icons-png.flaticon.com/512/25/25694.png"/></Link></li>  
           <li><SidebarItem name="Shorts" link='/yt-shorts.png'/></li>
           <li><SidebarItem name="Subsciptions" link="/yt-subsciption.png"/></li>
           <hr className='my-3' />
