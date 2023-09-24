@@ -9,7 +9,7 @@ const Sidebar = () => {
   if(!isMenuOpen) return null;
 
   return (
-    <div className='border-r-2 w-1/6 fixed bg-slate-100'>
+    <div className='border-r-2 w-1/6 fixed bg-white'>
       <div>
         <ul>
           <li><Link to="/"><SidebarItem name="Home" link="https://cdn-icons-png.flaticon.com/512/25/25694.png"/></Link></li>  

@@ -12,13 +12,12 @@ const DataContainer = () => {
   const getVideos = async ()=>{
     const list= await fetch(API);
     const json= await list.json();
-    console.log(json);
     setVideoList(json.items);
   }
   if(videoList.length===0) return <p>Data</p>
   return (
     <div className='flex w-5/6 flex-wrap ml-56'>
-      {videoList.map(video=><Link to={"/watch?v="+video.id}><VideoCard key={video.id} data={video} /></Link>)}
+      {videoList.map(video=><Link to={"/watch?v="+video.id} key={video.id}><VideoCard data={video} /></Link>)}
     </div>
   )
 }
