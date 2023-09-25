@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams , Link } from 'react-router-dom';
 import { searchAPI } from '../utils/constant';
 import SearchResultChannel from './SearchResultChannel';
 
@@ -16,15 +16,18 @@ const SearchResult = () => {
             const data= await fetch(searchAPI+query);
             const json= await data.json();
             setSearchData(json.items);
-            console.log(json.items[0]);
+            console.log(json.items);
         }
 
         getSearchResult();
-    },[]);
+    },[query]);
     if(searchData.length===0) return null;
   return (
     <div>
-      <SearchResultChannel data={searchData[0]}/>
+      {searchData.map(s=>
+        (s.id.kind==="youtube#video") ? <Link to={"/watch?v="+s.id.videoId}><SearchResultChannel data={s}/></Link>
+        : <SearchResultChannel data={s}/>
+      )}
     </div>
   )
 }

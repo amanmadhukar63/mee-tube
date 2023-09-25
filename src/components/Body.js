@@ -7,7 +7,7 @@ const Body = () => {
   return (
     <div>
       <Header />
-      <div className='flex'>
+      <div className='flex w-full'>
         <Sidebar />
         <Outlet />
       </div>

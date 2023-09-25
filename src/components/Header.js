@@ -38,12 +38,12 @@ const Header = () => {
       </div>
       <div className='w-1/2'>
         <div className='flex h-12 items-center w-full'>
-          <input className='w-full px-6 py-4 h-2 border-2 rounded-l-full' type='text' placeholder='Search' onBlur={()=>{setTimeout(()=>setDisplaySearchSuggetion(false),55)}} onFocus={()=>setDisplaySearchSuggetion(true)} onChange={(e)=>setSearchText(e.target.value)} />
+          <input className='w-full px-6 py-4 h-2 border-2 rounded-l-full' type='text' placeholder='Search' onBlur={()=>{setTimeout(()=>setDisplaySearchSuggetion(false),100)}} onFocus={()=>setDisplaySearchSuggetion(true)} value={searchText} onChange={(e)=>setSearchText(e.target.value)} />
           <Link to={"/results?search_query="+searchText}><img className='h-9 bg-gray-100 px-3 border-2 rounded-r-full border-l-0' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDKOXd98dcelwv7LoT31ERUK0Eak-oviT3ng&usqp=CAU' alt='search-logo' /></Link>
         </div>
         {displaySearchSuggetion && 
         <div className='shadow-lg absolute w-1/2 bg-slate-50 rounded-lg'>
-          {searchSuggetion.map(s=><Link key={s} to={"/results?search_query="+s}><p className='py-2 px-6 hover:bg-slate-200 rounded-lg'>{s}</p></Link>)}
+          {searchSuggetion.map(s=><Link key={s} to={"/results?search_query="+s}><p className='py-2 px-6 hover:bg-slate-200 rounded-lg' onClick={()=>setSearchText(s)}>{s}</p></Link>)}
         </div>}
       </div>
       <div className='mx-4'>
