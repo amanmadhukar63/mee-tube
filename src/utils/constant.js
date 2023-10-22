@@ -10,7 +10,7 @@ export const videoAPI=
 "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&key="+ApiKey+"&id=";
 
 export const relatedVideoAPI=
-"https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&type=video&key="+ApiKey+"&relatedToVideoId=";
+"https://youtube.googleapis.com/youtube/v3/search?part=snippet%2CcontentDetails%2Cstatistics&maxResults=25&type=video&key="+ApiKey+"&relatedToVideoId=";
 
 
 export default API;
